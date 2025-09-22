@@ -8,6 +8,8 @@
   width: 64px;       /* outer box */
   height: 64px;      /* outer box */
   display: flex;
+  width: 48px;  
+  height: 48px;  
   justify-content: center;
   align-items: center;
 }
@@ -89,5 +91,6 @@ footer{
 }
 
 @media(max-width:760px){.grid{grid-template-columns:1fr;}}
+
 
 
