@@ -5,13 +5,20 @@
   --muted:#9aa4b2;
 }
 .logo {
-  width: 64px;
-  height: 64px;
-  border-radius: 12px;
-  background-image: url('images/mylogo.png');
-  background-size: cover;
-  background-position: center;
+  width: 64px;       /* outer box */
+  height: 64px;      /* outer box */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.logo img {
+  max-width: 100%;   /* scale to fit parent */
+  max-height: 100%;  /* scale to fit parent */
+  object-fit: contain; /* keep aspect ratio */
+  display: block;
+}
+
 body{
   margin:0;
   font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
@@ -82,4 +89,5 @@ footer{
 }
 
 @media(max-width:760px){.grid{grid-template-columns:1fr;}}
+
 
