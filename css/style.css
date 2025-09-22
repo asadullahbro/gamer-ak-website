@@ -4,7 +4,14 @@
   --accent:#5865F2;
   --muted:#9aa4b2;
 }
-
+.logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  background-image: url('images/mylogo.png');
+  background-size: cover;
+  background-position: center;
+}
 body{
   margin:0;
   font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
@@ -75,3 +82,4 @@ footer{
 }
 
 @media(max-width:760px){.grid{grid-template-columns:1fr;}}
+
