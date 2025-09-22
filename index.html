@@ -4,100 +4,52 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Gamer-AK Bot</title>
-  <style>
-    :root {
-      --bg:#0f1724;
-      --card:#0b1220;
-      --accent:#5865F2;
-      --muted:#9aa4b2;
-      --glass:rgba(255,255,255,0.03);
-    }
-    body {
-      margin:0;
-      font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
-      background:linear-gradient(180deg,#071126 0%,#071b2a 100%);
-      color:#e6eef6;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      min-height:100vh;
-    }
-    .wrap {
-      width:min(920px,95%);
-      background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));
-      border-radius:12px;
-      padding:28px;
-      box-shadow:0 10px 30px rgba(2,6,23,0.6);
-    }
-    header {
-      display:flex;
-      gap:16px;
-      align-items:center;
-    }
-    .logo {
-      width:64px;
-      height:64px;
-      border-radius:12px;
-      overflow:hidden;
-    }
-    .logo img {
-      width:100%;
-      height:100%;
-      object-fit:contain;
-    }
-    h1 { margin:0;font-size:20px }
-    p.lead { color:var(--muted);margin-top:8px }
-    .btn {
-      display:inline-block;
-      padding:10px 14px;
-      border-radius:8px;
-      background:var(--accent);
-      color:#fff;
-      text-decoration:none;
-      font-weight:600;
-    }
-    footer { margin-top:18px;color:var(--muted);font-size:13px }
-  </style>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <div class="wrap">
     <header>
-      <div class="logo">
-        <img src="images/mylogo.png" alt="Gamer-AK Logo" />
-      </div>
+      <div class="logo">GK</div>
       <div>
-        <h1>Gamer-AK</h1>
-        <p class="lead">A clean, simple multipurpose bot for your server — profile lookups, fun commands, stats, and more.</p>
+        <h1>Gamer-AK Bot</h1>
+        <p class="lead">The ultimate multipurpose Discord bot — fun, utilities, and server stats!</p>
       </div>
     </header>
 
-    <div style="margin-top:20px">
-      <a id="discord-btn" class="btn" href="#" target="_blank">Connect Discord</a>
+    <div class="grid">
+      <div class="card">
+        <h2>About</h2>
+        <p>Gamer-AK helps Discord servers with profile lookups, fun commands, stats, moderation tools, and interactive utilities.</p>
+
+        <h2>Invite</h2>
+        <p>Invite the bot to your server:</p>
+        <a class="btn" href="https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&scope=bot%20applications.commands&permissions=8" target="_blank">Invite Bot</a>
+
+        <h2>Discord Login</h2>
+        <p>Log in with Discord to manage fallback permissions:</p>
+        <a class="btn" id="login-btn">Login with Discord</a>
+      </div>
+
+      <aside class="card">
+        <h2>Bot Details</h2>
+        <p><strong>Category:</strong> Utilities & Fun</p>
+        <p><strong>Features:</strong> Dice rolls, 8ball, meme fetch, profile lookups, ship, coin flip, and more!</p>
+
+        <h2>Privacy & Terms</h2>
+        <a class="btn" href="/privacy.html" target="_blank">Privacy Policy</a>
+        <span style="width:10px;display:inline-block"></span>
+        <a class="btn" href="/terms.html" target="_blank">Terms of Service</a>
+      </aside>
     </div>
 
     <footer>
-      <div>Copyright © <span id="year"></span> Gamer-AK</div>
+      <p>Copyright © <span id="year"></span> Gamer-AK Bot</p>
     </footer>
   </div>
 
+  <script src="js/oauth.js"></script>
   <script>
-    // Update year
     document.getElementById('year').innerText = new Date().getFullYear();
-
-    // Replace with your Discord app client ID
-    const clientId = "846738039295705159";
-
-    // Your Netlify site callback page (you'll make this)
-    const redirectUri = encodeURIComponent("https://gamer-ak.netlify.app/callback.html");
-
-    // Discord OAuth2 scopes
-    const scopes = encodeURIComponent("identify guilds");
-
-    // Build the OAuth2 URL
-    const oauthUrl = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=${scopes}`;
-
-    // Set the button href
-    document.getElementById("discord-btn").href = oauthUrl;
   </script>
 </body>
 </html>
