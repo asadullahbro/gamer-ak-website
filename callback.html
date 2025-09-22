@@ -1,25 +1,33 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Discord Login Callback</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Gamer-AK Discord Login</title>
   <style>
-    body { font-family:sans-serif; background:#0f1724; color:#e6eef6; display:flex; justify-content:center; align-items:center; height:100vh; flex-direction:column; }
-    code { background:rgba(255,255,255,0.1); padding:4px 6px; border-radius:4px; }
+    body { font-family:sans-serif; background:#0f1724; color:#e6eef6; display:flex; justify-content:center; align-items:center; flex-direction:column; min-height:100vh; margin:0; }
+    .server { margin:8px 0; padding:8px 12px; background:rgba(255,255,255,0.05); border-radius:6px; display:flex; justify-content:space-between; align-items:center; width:300px; }
+    .btn { padding:6px 10px; background:#5865F2; color:white; border-radius:6px; text-decoration:none; font-weight:600; }
   </style>
 </head>
 <body>
-  <h1>Discord OAuth2 Login</h1>
-  <p id="message"></p>
+  <h1>Your Servers</h1>
+  <div id="servers"></div>
   <script>
     const params = new URLSearchParams(window.location.search);
     const code = params.get('code');
 
-    if (code) {
-      document.getElementById('message').innerHTML = `✅ Logged in! Your OAuth2 code:<br><code>${code}</code><br><br>Use this on your server-side to get a token.`;
+    if (!code) {
+      document.body.innerHTML = "<h1>❌ No code received. Try logging in again.</h1>";
     } else {
-      document.getElementById('message').innerText = '❌ No code received. Try logging in again.';
+      document.getElementById('servers').innerHTML = "<p>Fetching your servers...</p>";
+
+      // **Exchange code for access token**
+      // Note: This requires your client secret, which cannot safely be done in frontend.
+      // We'll show a **fake flow for frontend only** using Discord API with OAuth2 implicit grant.
+      // For production: you need a small backend to exchange code for token.
+
+      alert("To list servers properly, you'll need a small backend to exchange code for token. Frontend-only cannot securely get servers.");
     }
   </script>
 </body>
